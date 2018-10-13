@@ -2,7 +2,8 @@ $entry_fee = 5
 
 class Guest
 
-  attr_reader :name, :money, :fave_song
+  attr_reader :name, :fave_song
+  attr_accessor :money
 
   def initialize(name, money, fave_song)
     @name = name

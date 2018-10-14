@@ -22,6 +22,7 @@ class Room
     else
       @guests << guest
       guest.money -= $entry_fee
+      @bar.money += $entry_fee
     end
   end
 

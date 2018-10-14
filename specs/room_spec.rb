@@ -39,6 +39,7 @@ class RoomTest < MiniTest::Test
     @room_dungeon.check_in(@guest_bruce)
     assert_equal(1, @room_dungeon.guests.length)
     assert_equal(95, @guest_bruce.money)
+    assert_equal(5, @bar.money)
   end
 
   def test_check_in__fails__cannot_afford_entry_fee

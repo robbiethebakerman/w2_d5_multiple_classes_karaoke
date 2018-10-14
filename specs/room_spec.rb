@@ -4,6 +4,7 @@ require_relative("../room")
 require_relative("../guest")
 require_relative("../song")
 require_relative("../bar")
+require_relative("../drink")
 
 class RoomTest < MiniTest::Test
 
@@ -68,6 +69,11 @@ class RoomTest < MiniTest::Test
     @room_dungeon.check_in(@guest_bruce)
     @room_dungeon.check_out(@guest_bruce)
     assert_equal(0, @room_dungeon.guests.length)
+  end
+
+  def test_add_money_to_bar
+    @room_dungeon.add_money_to_bar(5)
+    assert_equal(5, @bar.money)
   end
 
 end

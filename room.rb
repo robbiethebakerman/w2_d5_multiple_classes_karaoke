@@ -1,6 +1,7 @@
 class Room
 
-  attr_reader :name, :capacity, :guests, :songs, :bar
+  attr_reader :name, :capacity, :guests, :songs
+  attr_accessor :bar, :drinks_sold_from_room
 
   def initialize(name, capacity, bar)
     @name = name
@@ -8,6 +9,7 @@ class Room
     @bar = bar
     @guests = []
     @songs = []
+    @drinks_sold_from_room = 0
   end
 
   def add_song(song)
@@ -28,6 +30,10 @@ class Room
 
     def check_out(guest)
       @guests.delete(guest)
+    end
+
+    def add_money_to_bar(amount)
+      @bar.add_money(amount)
     end
 
 end

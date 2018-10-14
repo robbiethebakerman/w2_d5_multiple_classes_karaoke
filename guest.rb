@@ -15,4 +15,8 @@ class Guest
     @money >= $entry_fee ? true : false
   end
 
+  def cheer_fave_song(room)
+    "OMG OMG OMG I love this song!" if room.songs.include?(@fave_song)
+  end
+
 end

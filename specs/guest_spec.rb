@@ -2,6 +2,7 @@ require("minitest/autorun")
 require("minitest/rg")
 require_relative("../guest")
 require_relative("../song")
+require_relative("../room")
 
 class GuestTest < MiniTest::Test
 
@@ -9,6 +10,7 @@ class GuestTest < MiniTest::Test
     @song = Song.new("Virus with Shoes")
     @guest_rihanna = Guest.new("Rihanna", 50, @song)
     @guest_kanye = Guest.new("Kanye West", 0, @song)
+    @room = Room.new("The Attic", 10)
   end
 
   def test_guest_has_name
@@ -29,6 +31,17 @@ class GuestTest < MiniTest::Test
 
   def test_can_afford_entry__false
     assert_equal(false, @guest_kanye.can_afford_entry())
+  end
+
+  def test_cheer_fave_song__true
+    @room.add_song(@song)
+    result = @guest_kanye.cheer_fave_song(@room)
+    assert_equal("OMG OMG OMG I love this song!", result)
+  end
+
+  def test_cheer_fave_song__false
+    result = @guest_kanye.cheer_fave_song(@room)
+    assert_nil(result)
   end
 
 end

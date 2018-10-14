@@ -3,6 +3,7 @@ require("minitest/rg")
 require_relative("../guest")
 require_relative("../song")
 require_relative("../room")
+require_relative("../bar")
 
 class GuestTest < MiniTest::Test
 
@@ -10,7 +11,8 @@ class GuestTest < MiniTest::Test
     @song = Song.new("Virus with Shoes")
     @guest_rihanna = Guest.new("Rihanna", 50, @song)
     @guest_kanye = Guest.new("Kanye West", 0, @song)
-    @room = Room.new("The Attic", 10)
+    @bar = Bar.new
+    @room = Room.new("The Attic", 10, @bar)
   end
 
   def test_guest_has_name

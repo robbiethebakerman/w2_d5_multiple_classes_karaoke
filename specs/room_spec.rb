@@ -3,6 +3,7 @@ require("minitest/rg")
 require_relative("../room")
 require_relative("../guest")
 require_relative("../song")
+require_relative("../bar")
 
 class RoomTest < MiniTest::Test
 
@@ -12,8 +13,9 @@ class RoomTest < MiniTest::Test
     @guest_bruce = Guest.new("Bruce Springsteen", 100, @song_hey_ya)
     @guest_usain = Guest.new("Usain Bolt", 2, @song_born_to_run)
     @guest_kate = Guest.new("Kate Bush", 10, @song_hey_ya)
-    @room_dungeon = Room.new("Dungeon", 5)
-    @room_closet = Room.new("Closet", 1)
+    @bar = Bar.new()
+    @room_dungeon = Room.new("Dungeon", 5, @bar)
+    @room_closet = Room.new("Closet", 1, @bar)
   end
 
   def test_room_has_name
@@ -22,6 +24,10 @@ class RoomTest < MiniTest::Test
 
   def test_room_has_capacity
     assert_equal(1, @room_closet.capacity)
+  end
+
+  def test_room_has_bar
+    assert_equal(@bar, @room_closet.bar)
   end
 
   def test_add_song
